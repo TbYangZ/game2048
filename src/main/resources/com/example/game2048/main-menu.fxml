@@ -6,8 +6,28 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.game2048.ControllerMainMenu"
-            prefHeight="400.0" prefWidth="600.0">s
-</AnchorPane>
+<?import javafx.scene.text.Font?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.game2048.ControllerMainMenu"
+      prefHeight="400.0" prefWidth="600.0" alignment="CENTER" spacing="10"
+      fx:id="mainRoot">
+<!--    <GridPane fx:id="gridPane">-->
+        <Label fx:id="titleLabel" text="2048!" alignment="CENTER">
+<!--                <font>-->
+<!--                        <Font size="${scene.width / 20}"/>-->
+<!--                </font>-->
+        </Label>
+        <Button fx:id="gameStartButton" text="Game Start!" onAction="#clickGameStart" prefWidth="210" prefHeight="50">
+                <font>
+                        <Font name="Arial" size="20"/>
+                </font>
+        </Button>
+        <HBox spacing="10" alignment="CENTER">
+                <Button fx:id="loginButton" text="Log in" onAction="#clickLogin" prefWidth="100" prefHeight="50"/>
+                <Button fx:id="registerButton" text="Register" onAction="#clickRegister" prefWidth="100" prefHeight="50"/>
+        </HBox>
+        <Button fx:id="settingsButton" text="Settings" onAction="#clickSetting" prefWidth="210" prefHeight="50"/>
+        <Button fx:id="quitButton" text="Quit" onAction="#clickQuit" prefWidth="210" prefHeight="50"/>
+<!--    </GridPane>-->
+</VBox>

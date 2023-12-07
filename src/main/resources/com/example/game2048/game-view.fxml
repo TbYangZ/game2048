@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--<GridPane xmlns="http://javafx.com/javafx"-->
+<!--            xmlns:fx="http://javafx.com/fxml"-->
+<!--            fx:controller="com.example.game2048.ControllerMainGame"-->
+<!--            prefHeight="400.0" prefWidth="600.0">-->
+<!--    <GridPane fx:id="gridPane" styleClass="game-grid"/>-->
+<!--</GridPane>-->
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.game2048.ControllerMainGame">
+
+<!--    <Button text="Top" BorderPane.alignment="CENTER" />-->
+<!--    <Button text="Left" BorderPane.alignment="CENTER_LEFT" />-->
+    <Button text="Center" />
+<!--    <Button text="Right" BorderPane.alignment="CENTER_RIGHT" />-->
+<!--    <Button text="Bottom" BorderPane.alignment="BOTTOM_CENTER" />-->
+</BorderPane>

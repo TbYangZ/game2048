@@ -13,7 +13,9 @@
 <?import javafx.scene.layout.HBox?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.game2048.ControllerTest">
+      fx:controller="com.example.game2048.ControllerTest"
+      fx:id="secondRoot">
+  <Label text="Hello, World!" />
   <HBox spacing="10">
     <Button text="File" />
     <Button text="Edit" />
