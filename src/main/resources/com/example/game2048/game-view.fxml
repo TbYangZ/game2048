@@ -13,13 +13,73 @@
 <!--    <GridPane fx:id="gridPane" styleClass="game-grid"/>-->
 <!--</GridPane>-->
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Rectangle2D?>
 <BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.game2048.ControllerMainGame">
-
-<!--    <Button text="Top" BorderPane.alignment="CENTER" />-->
-<!--    <Button text="Left" BorderPane.alignment="CENTER_LEFT" />-->
-    <Button text="Center" />
-<!--    <Button text="Right" BorderPane.alignment="CENTER_RIGHT" />-->
-<!--    <Button text="Bottom" BorderPane.alignment="BOTTOM_CENTER" />-->
+          xmlns:fx="https://javafx.com/fxml"
+          fx:controller="com.example.game2048.ControllerMainGame"
+          fx:id="borderPane">
+    <ImageView fx:id="main_bg">
+        <Image url="@./main-bg.png"/>
+    </ImageView>
+    <ImageView fx:id="cell00">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell01">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell02">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell03">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell10">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell11">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell12">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell13">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell20">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell21">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell22">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell23">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell30">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell31">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell32">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell33">
+        <Image url="@number_basic.png"/>
+    </ImageView>
 </BorderPane>
+
+<!--<BorderPane xmlns="http://javafx.com/javafx"-->
+<!--            xmlns:fx="http://javafx.com/fxml"-->
+<!--            fx:controller="com.example.game2048.ControllerMainGame">-->
+
+<!--&lt;!&ndash;    <Button text="Top" BorderPane.alignment="CENTER" />&ndash;&gt;-->
+<!--&lt;!&ndash;    <Button text="Left" BorderPane.alignment="CENTER_LEFT" />&ndash;&gt;-->
+<!--    <Button text="Center" />-->
+<!--&lt;!&ndash;    <Button text="Right" BorderPane.alignment="CENTER_RIGHT" />&ndash;&gt;-->
+<!--&lt;!&ndash;    <Button text="Bottom" BorderPane.alignment="BOTTOM_CENTER" />&ndash;&gt;-->
+<!--</BorderPane>-->
