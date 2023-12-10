@@ -1,31 +1,23 @@
 package com.example.game2048;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.ParallelCamera;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.stage.*;
 
 import java.io.IOException;
+import java.util.Collection;
 
 public class ControllerMainMenu {
-    @FXML
-    private Label titleLabel;
-    @FXML
-    private VBox mainRoot;
-    @FXML
-    private Button loginButton, registerButton, gameStartButton, settingsButton, quitButton;
-    @FXML
-    private void initialize() {
+    public Label titleLabel;
+    public StackPane mainRoot;
+    public Button loginButton, registerButton, gameStartButton, settingsButton, quitButton;
+    public void initialize() {
         mainRoot.widthProperty().addListener((observable, oldValue, newValue) -> {
             titleLabel.setStyle("-fx-font-size: " + newValue.doubleValue() / 20);
-//            loginButton.setScaleY();
             loginButton.setPrefWidth(newValue.doubleValue() / 10);
             registerButton.setPrefWidth(newValue.doubleValue() / 10);
             gameStartButton.setPrefWidth(loginButton.getPrefWidth() + registerButton.getPrefWidth() + 10);
@@ -47,26 +39,25 @@ public class ControllerMainMenu {
             quitButton.setPrefHeight(newValue.doubleValue() / 20);
         });
     }
-    @FXML
-    private void clickGameStart() throws IOException {
-//        FXMLLoader loader = new FXMLLoader(ControllerMainMenu.class.getResource("game-view.fxml"));
-//        Parent secondRoot = loader.load();
-//        mainRoot.getChildren().setAll(secondRoot);
+
+    public void clickGameStart() throws IOException {
+        Scene newScene = Game.build(800, 450);
+        Scene currentScene = mainRoot.getScene();
+        Stage currentStage = (Stage)currentScene.getWindow();
+        currentStage.setScene(newScene);
     }
-    @FXML
-    private void clickSetting() throws IOException {
+
+    public void clickSetting() throws IOException {
 
     }
-    @FXML
-    private void clickLogin() throws IOException {
+
+    public void clickLogin() throws IOException {
 
     }
-    @FXML
-    private void clickRegister() throws IOException {
+
+    public void clickRegister() throws IOException {
 
     }
-    @FXML
-    private void clickQuit() throws IOException {
 
-    }
+    public void clickQuit() { Platform.exit(); }
 }
