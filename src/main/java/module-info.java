@@ -3,6 +3,7 @@ module com.example.game2048 {
     requires javafx.fxml;
     requires javafx.media;
     requires java.desktop;
+    requires javafx.web;
 
 
     opens com.example.game2048 to javafx.fxml;

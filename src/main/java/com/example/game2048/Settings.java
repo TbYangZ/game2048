@@ -11,6 +11,11 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.scene.web.WebView;
+import java.net.URI;
+import java.io.File;
 
 public class Settings {
     private static MediaPlayer mediaPlayer;
@@ -23,6 +28,7 @@ public class Settings {
         Button bgm2Button = new Button("BGM 2");
         Button bgm3Button = new Button("BGM 3");
         Button bgm4Button = new Button("BGM 4");
+        Button tutorialButton = new Button("View Tutorial");
 
         // 创建超链接按钮
         Hyperlink githubLink = new Hyperlink("Visit our GitHub repository");
@@ -35,11 +41,13 @@ public class Settings {
 
         // 设置超链接按钮点击事件
         githubLink.setOnAction(event -> handleGitHubLinkClicked());
+        // 设置教程点击事件
+        tutorialButton.setOnAction(event -> handleTutorialButtonClicked());
 
         // 布局按钮和超链接
         VBox layout = new VBox(10);
         layout.setAlignment(Pos.CENTER);
-        layout.getChildren().addAll(bgm1Button, bgm2Button, bgm3Button, bgm4Button, githubLink);
+        layout.getChildren().addAll(bgm1Button, bgm2Button, bgm3Button, bgm4Button, tutorialButton, githubLink);
 
         // 创建场景
         return new Scene(layout, 400, 300);
@@ -70,5 +78,42 @@ public class Settings {
         } catch (java.io.IOException | java.net.URISyntaxException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void handleTutorialButtonClicked() {
+        // 在这里处理查看教程按钮的点击事件
+        System.out.println("View Tutorial Button Clicked");
+
+        // 你可以在这里弹出教程窗口，或者执行其他相关操作
+        // 创建新舞台用于显示教程界面
+        Stage tutorialStage = new Stage();
+        tutorialStage.initModality(Modality.APPLICATION_MODAL);
+        tutorialStage.setTitle("Game Tutorial");
+
+        // 创建 WebView
+        WebView webView = new WebView();
+        // 在这里加载教程内容，可以是本地HTML文件或在线URL
+        String localHtmlFilePath = "src/main/resources/com/example/game2048/tutorial.html";
+
+        // 将文件路径转换为 URI
+        URI uri = new File(localHtmlFilePath).toURI();
+
+        // 使用 WebView 加载本地 HTML 文件
+        webView.getEngine().load(uri.toString());
+
+        // 创建返回按钮
+        Button backButton = new Button("Back to Settings");
+        backButton.setOnAction(event -> tutorialStage.close());
+
+        // 布局
+        VBox layout = new VBox(10);
+        layout.getChildren().addAll(webView, backButton);
+
+        // 创建场景
+        Scene tutorialScene = new Scene(layout, 600, 400);
+        tutorialStage.setScene(tutorialScene);
+
+        // 显示教程界面
+        tutorialStage.show();
     }
 }
