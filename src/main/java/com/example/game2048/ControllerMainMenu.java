@@ -48,8 +48,22 @@ public class ControllerMainMenu {
     }
 
     public void clickSetting() throws IOException {
+        Scene settingsScene = Settings.build();
 
+        // 获取当前舞台
+        Stage currentStage = (Stage) mainRoot.getScene().getWindow();
+
+        // 创建新舞台用于显示设置界面
+        Stage settingsStage = new Stage();
+        settingsStage.initModality(Modality.APPLICATION_MODAL);
+        settingsStage.initOwner(currentStage);
+        settingsStage.setTitle("Settings");
+        settingsStage.setScene(settingsScene);
+
+        // 显示设置界面
+        settingsStage.show();
     }
+
 
     public void clickLogin() throws IOException {
 
