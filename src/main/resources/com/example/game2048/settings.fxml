@@ -7,18 +7,25 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <VBox alignment="CENTER" layoutX="148.0" layoutY="68.0" prefHeight="165.0" prefWidth="200.0" spacing="10.0">
-            <children>
-                <Button mnemonicParsing="false" text="BGM 1" />
-                <Button mnemonicParsing="false" text="BGM 2" />
-                <Button mnemonicParsing="false" text="BGM 3" />
-                <Button mnemonicParsing="false" text="BGM 4" />
-            </children>
+<?import javafx.scene.image.ImageView?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.game2048.ControllerSettings"
+            prefHeight="400.0" prefWidth="600.0" fx:id="mainRoot">
+    <ImageView fx:id="backgroundImageView" preserveRatio="true" fitWidth="800.0" fitHeight="600.0"/>
+    <center>
+        <VBox alignment="CENTER" spacing="10.0">
             <padding>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
+            <Button mnemonicParsing="false" text="BGM 1" fx:id="BGM1"/>
+            <Button mnemonicParsing="false" text="BGM 2" fx:id="BGM2"/>
+            <Button mnemonicParsing="false" text="BGM 3" fx:id="BGM3"/>
+            <Button mnemonicParsing="false" text="BGM 4" fx:id="BGM4"/>
+            <Slider value="50" fx:id="volumeSlider"/>
+            <Button text="Choose background picture" fx:id="chooseImageButton"/>
+            <Hyperlink text="Visit our GitHub repository" fx:id="github"/>
+            <Button text="back" fx:id="Back"/>
         </VBox>
-    </children>
-</AnchorPane>
+    </center>
+</BorderPane>

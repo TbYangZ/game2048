@@ -9,9 +9,10 @@ public class Board {
     int emptySize;
     int maxNumber;
     int side;
+    // side( = 0: down);( = 1: left);( = 2: up);( = 3: right);
     int boardSize;
     int score;
-    public Board() {}
+    public Board() { }
     public Board(Board.savedData loadedBoard) {
         boardSize = loadedBoard.boardSize;
         maxNumber = loadedBoard.maxNumber;
@@ -24,7 +25,6 @@ public class Board {
             System.arraycopy(loadedBoard.board[i], 0, board[i], 0, boardSize);
     }
 
-    // side( = 0: down);( = 1: left);( = 2: up);( = 3: right);
     public void initialize() {
         side = 0;
         score = 0;
@@ -35,6 +35,7 @@ public class Board {
             for (int j = 0; j < boardSize; ++j)
                 board[i][j] = 0;
         moving = new ArrayList<>();
+        maxNumber = 0;
         genRandomCell();
     }
     private int randomInt(int N) {
@@ -253,6 +254,9 @@ public class Board {
             e.printStackTrace();
         }
         return null;
+    }
+    public void setMax(int number) {
+        maxNumber = number;
     }
     public static void main(String[] args) {
     }

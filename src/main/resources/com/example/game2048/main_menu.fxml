@@ -18,10 +18,6 @@
                                 <Font name="Arial" size="20"/>
                         </font>
                 </Button>
-                <HBox spacing="10" alignment="CENTER">
-                        <Button fx:id="loginButton" text="Log in" onAction="#clickLogin" prefWidth="100" prefHeight="50"/>
-                        <Button fx:id="registerButton" text="Register" onAction="#clickRegister" prefWidth="100" prefHeight="50"/>
-                </HBox>
                 <Button fx:id="settingsButton" text="Settings" onAction="#clickSetting" prefWidth="210" prefHeight="50"/>
                 <Button fx:id="quitButton" text="Quit" onAction="#clickQuit" prefWidth="210" prefHeight="50"/>
         </VBox>

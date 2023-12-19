@@ -12,6 +12,9 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         stage.setTitle("Game 2048");
         stage.setScene(MainMenu.build(Width / 2, Height / 2));
+        stage.setOnCloseRequest(windowEvent -> {
+            Game.saveBestScore();
+        });
         stage.setResizable(false);
         stage.show();
     }

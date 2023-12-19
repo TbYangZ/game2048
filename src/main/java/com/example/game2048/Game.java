@@ -29,10 +29,14 @@ public class Game {
         scene.setOnKeyReleased(Game::onKeyReleased);
         board = new Board();
         board.initialize();
+        bestScore = importBestScore();
+        System.out.println(bestScore);
+        controller.setMaxScore(bestScore);
         keyEnable = true;
         showBoard();
         return scene;
     }
+
     private static void showBoard() {
         ParallelTransition ptr = new ParallelTransition();
         for (Board.Moving mov: board.moving) {
@@ -94,7 +98,31 @@ public class Game {
         ParallelTransition pt = new ParallelTransition(ft1, ft2);
         pt.play();
         keyEnable = false;
+        exportBestScore(bestScore);
     }
+    public static void saveBestScore() {
+        exportBestScore(bestScore);
+    }
+
+    private static void exportBestScore(int bestScore) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("maxNumber.dat"))) {
+            System.out.println("Export!");
+            oos.writeObject(bestScore);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private static int importBestScore() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("maxNumber.dat"))) {
+            System.out.println("Import!");
+            return (int) ois.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("No Max Number");
+            return 0;
+        }
+    }
+
+
     private static void onKeyPressed(KeyEvent event) {
         if (keyPressed) return;
         if (!keyEnable) return;

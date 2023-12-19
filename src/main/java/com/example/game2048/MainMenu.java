@@ -11,11 +11,17 @@ import java.io.IOException;
 public class MainMenu {
     public static Scene scene;
     public static ControllerMainMenu controller;
+    public static String imagePath;
     public static Scene build(double width, double height) throws IOException {
         FXMLLoader loader = new FXMLLoader(MainMenu.class.getResource("main_menu.fxml"));
         Parent root = loader.load();
+        if (imagePath != null) {
+            System.out.println("Image Path = " + imagePath);
+            root.setStyle("-fx-background-image: url('" + imagePath + "');" +
+                    "-fx-background-size: contain;" +
+                    "-fx-background-position: center center;");
+        }
         scene = new Scene(root, width, height);
-        scene.getStylesheets().add(MainMenu.class.getResource("main_bg.css").toExternalForm());
         controller = loader.getController();
         return scene;
     }

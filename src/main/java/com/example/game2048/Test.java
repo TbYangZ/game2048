@@ -1,48 +1,46 @@
 package com.example.game2048;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class Test extends Application {
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
     @Override
     public void start(Stage primaryStage) {
-        StackPane root = new StackPane();
+        primaryStage.setTitle("Close Event Example");
 
-        // 添加一个按钮
-        Button button = new Button("Click me!");
-        root.getChildren().add(button);
-        button.setFocusTraversable(false);
-
-        Scene scene = new Scene(root, 300, 200);
-
-        // 设置场景的键盘事件处理程序
-        scene.setOnKeyPressed(event -> {
-            KeyCode keyCode = event.getCode();
-
-            if (keyCode == KeyCode.UP) {
-                System.out.println("Up key pressed");
-            } else if (keyCode == KeyCode.DOWN) {
-                System.out.println("Down key pressed");
-            } else if (keyCode == KeyCode.LEFT) {
-                System.out.println("Left key pressed");
-            } else if (keyCode == KeyCode.RIGHT) {
-                System.out.println("Right key pressed");
-            }
-
-            // 在这里添加其他处理逻辑
+        Button closeButton = new Button("Close");
+        closeButton.setOnAction(event -> {
+            // 在程序关闭时执行相关动作
+            onClose();
+            // 关闭应用程序
+            Platform.exit();
         });
 
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Direction Keys Example with Button");
+        StackPane root = new StackPane();
+        root.getChildren().add(closeButton);
+
+        primaryStage.setScene(new Scene(root, 300, 200));
         primaryStage.show();
+
+        // 添加关闭事件监听器
+        primaryStage.setOnCloseRequest(event -> {
+            // 在程序关闭时执行相关动作
+            onClose();
+        });
+    }
+
+    private void onClose() {
+        System.out.println("Closing application...");
+        // 在这里执行你的关闭动作
+        // 例如，保存数据、关闭连接等
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }

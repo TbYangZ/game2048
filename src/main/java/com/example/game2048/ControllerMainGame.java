@@ -4,12 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -30,6 +27,7 @@ public class ControllerMainGame {
     public Button save;
     public Button load;
     public Button retry;
+    public Button clear;
     public ImageView score_bg1;
     public ImageView score_bg2;
     public ImageView score_digit1, score_digit2, score_digit3, score_digit4, score_digit5;
@@ -67,6 +65,7 @@ public class ControllerMainGame {
         save.setFocusTraversable(false);
         load.setFocusTraversable(false);
         retry.setFocusTraversable(false);
+        clear.setFocusTraversable(false);
 
         score_digit1.setPreserveRatio(true);
         score_digit2.setPreserveRatio(true);
@@ -97,11 +96,13 @@ public class ControllerMainGame {
         score.setX(x0 + 0.6 * width);
         score.setY(y0 - 20);
 
-        score_bg1.setPreserveRatio(true);
-        score_bg1.setFitWidth(160);
+        score_bg1.setPreserveRatio(false);
+        score_bg1.setFitWidth(165);
+        score_bg1.setFitHeight(100);
         score_bg1.setX(x0 - 10);
-        score_bg1.setY(y0 - 20 - 10);
+        score_bg1.setY(y0 - 20 - 10 - 20);
         score_bg1.toBack();
+
 
         y0 = 300;
 
@@ -132,9 +133,12 @@ public class ControllerMainGame {
         max_score.setX(x0 + width);
         max_score.setY(y0 - 20);
 
-
-        score_bg2.setPreserveRatio(true);
-        score_bg2.setFitWidth(160);
+        score_bg2.setPreserveRatio(false);
+        score_bg2.setFitWidth(165);
+        score_bg2.setFitHeight(100);
+        score_bg2.setX(x0 - 10);
+        score_bg2.setY(y0 - 20 - 10 - 20);
+        score_bg2.toBack();
 
     }
     public void clearCell(int x, int y) {
@@ -146,6 +150,7 @@ public class ControllerMainGame {
         cells[x][y].setImage(new Image(imgPath));
     }
     public void onBackButtonClick() throws IOException {
+        Game.saveBestScore();
         Scene newScene = MainMenu.build(800, 450);
         Scene currentScene = mainRoot.getScene();
         Stage currentStage = (Stage)currentScene.getWindow();
@@ -157,7 +162,7 @@ public class ControllerMainGame {
     public void onLoadButtonClick() {
         Game.load();
     }
-    public void onRetryButtonClick() { Game.board.initialize(); Game.recoveryBoard(); }
+    public void onRetryButtonClick() { Game.saveBestScore(); Game.board.initialize(); Game.recoveryBoard(); }
     public void setScore(int _score) {
         int d1, d2, d3, d4, d5;
         d5 = _score % 10; _score /= 10;
@@ -186,4 +191,9 @@ public class ControllerMainGame {
         max_score_digit1.setViewport(new Rectangle2D(d1 * 192, 0, 192, 257));
     }
 
+    public void onClearButtonClick() {
+        Game.bestScore = 0;
+        setMaxScore(0); Game.board.initialize();
+        Game.recoveryBoard();
+    }
 }
