@@ -258,6 +258,4 @@ public class Board {
     public void setMax(int number) {
         maxNumber = number;
     }
-    public static void main(String[] args) {
-    }
 }

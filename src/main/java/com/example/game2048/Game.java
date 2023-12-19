@@ -20,6 +20,7 @@ public class Game {
     public static boolean haveMoved;
     public static boolean keyEnable;
     public static int bestScore;
+    public static String imagePath;
     public static Scene build(double width, double height) throws IOException {
         FXMLLoader loader = new FXMLLoader(Game.class.getResource("game_page.fxml"));
         Parent root = loader.load();
@@ -34,6 +35,12 @@ public class Game {
         controller.setMaxScore(bestScore);
         keyEnable = true;
         showBoard();
+        if (imagePath != null) {
+            System.out.println("Image Path = " + imagePath);
+            root.setStyle("-fx-background-image: url('" + imagePath + "');" +
+                    "-fx-background-size: contain;" +
+                    "-fx-background-position: center center;");
+        }
         return scene;
     }
 
@@ -163,9 +170,10 @@ public class Game {
     }
     public static void save() {
         String userHome = System.getProperty("user.home");
-        String saveFilePath = userHome + File.separator + "YourAppName" + File.separator + "save.dat";
-        saveFilePath = "save.dat";
+        String saveFilePath = "save.dat";//userHome + File.separator + "YourAppName" + File.separator + "save.dat";
+//        saveFilePath = "save.dat";
         Board.saveData(saveFilePath, board);
+        saveBestScore();
     }
     public static void load() {
         String saveFilePath = "save.dat";

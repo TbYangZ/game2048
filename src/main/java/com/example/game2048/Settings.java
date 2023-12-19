@@ -21,11 +21,20 @@ import java.io.File;
 public class Settings {
     public static ControllerSettings controller;
     public static Scene scene;
+    public static double volume;
+    public static String imagePath;
     public static Scene build(double width, double height) throws IOException {
         FXMLLoader loader = new FXMLLoader(Settings.class.getResource("settings.fxml"));
         Parent root = loader.load();
         scene = new Scene(root, width, height);
         controller = loader.getController();
+        controller.volume = volume;
+        if (imagePath != null) {
+            System.out.println("Image Path = " + imagePath);
+            root.setStyle("-fx-background-image: url('" + imagePath + "');" +
+                    "-fx-background-size: contain;" +
+                    "-fx-background-position: center center;");
+        }
         return scene;
     }
 

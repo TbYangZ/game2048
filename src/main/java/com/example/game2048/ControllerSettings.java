@@ -3,10 +3,8 @@ package com.example.game2048;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -28,10 +26,8 @@ public class ControllerSettings {
     public Hyperlink github;
     public MediaPlayer player;
     public Slider volumeSlider;
-    public Label volumeLabel;
-    public ImageView backgroundImageView;
     public Button chooseImageButton;
-    private double volume;
+    public double volume;
     public void initialize() {
         BGM1.setOnAction(event -> onClickBGMButton("STARTLINER"));
         BGM2.setOnAction(event -> onClickBGMButton("Sympathy"));
@@ -54,13 +50,13 @@ public class ControllerSettings {
         github.setOnAction(event -> handleGitHubLinkClicked());
         volumeSlider.setShowTickLabels(true);
         volumeSlider.setShowTickMarks(true);
-        volumeLabel = new Label("当前音量: " + volumeSlider.getValue());
+        volume = 0.5;
+        volumeSlider.setValue(volume);
+//        volumeLabel = new Label("当前音量: " + volumeSlider.getValue());
         volumeSlider.valueProperty().addListener(((observableValue, number, t1) -> {
-            volumeLabel.setText("当前音量: " + t1.intValue());
+//            volumeLabel.setText("当前音量: " + t1.intValue());
             handleVolumeChange(t1.intValue());
         }));
-        volume = 0.5;
-        backgroundImageView = new ImageView();
     }
 
     private void onClickBGMButton(String name) {
@@ -113,10 +109,14 @@ public class ControllerSettings {
     private void setImage(File file) throws UnsupportedEncodingException {
         String filePath = file.getAbsolutePath();
         Image image = new Image("file:" + file.getAbsolutePath());
-//        filePath = filePath.replace('\\', '/');
         filePath = URLEncoder.encode(filePath, StandardCharsets.UTF_8);
         System.out.println(filePath);
+        filePath = filePath.replace("+", "%20");
         MainMenu.imagePath = "file:" + filePath;
-        backgroundImageView.setImage(image);
+        Game.imagePath = "file:" + filePath;
+        Settings.imagePath = "file:" + filePath;
+        mainRoot.setStyle("-fx-background-image: url('" + Settings.imagePath + "');" +
+                "-fx-background-size: contain;" +
+                "-fx-background-position: center center;");
     }
 }
