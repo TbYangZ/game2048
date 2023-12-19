@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.input.KeyEvent?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Rectangle2D?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="https://javafx.com/fxml"
+            fx:controller="com.example.game2048.ControllerMainGame"
+            fx:id="mainRoot">
+    <ImageView fx:id="game_over_bg">
+        <Image url="@./game_over_bg.png"/>
+    </ImageView>
+    <ImageView fx:id="game_over">
+        <Image url="@./game_over.png"/>
+    </ImageView>
+    <ImageView fx:id="main_bg">
+        <Image url="@board_bg.png"/>
+    </ImageView>
+    <ImageView fx:id="cell00">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell01">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell02">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell03">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell10">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell11">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell12">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell13">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell20">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell21">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell22">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell23">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell30">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell31">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell32">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <ImageView fx:id="cell33">
+        <Image url="@number_basic.png"/>
+    </ImageView>
+    <left>
+        <VBox>
+            <Button text="back" fx:id="back" onAction="#onBackButtonClick"/>
+            <Button text="save" fx:id="save" onAction="#onSaveButtonClick"/>
+            <Button text="load" fx:id="load" onAction="#onLoadButtonClick"/>
+            <Button text="retry" fx:id="retry" onAction="#onRetryButtonClick"/>
+        </VBox>
+    </left>
+    <Text fx:id="score" text="SCORE" textAlignment="CENTER" fill="#eee4da"/>
+    <ImageView fx:id="score_digit1">
+        <Image url="@Arabic_Numerals.svg.png"/>
+        <viewport>
+            <Rectangle2D width="192" height="257"/>
+        </viewport>
+    </ImageView>
+
+    <ImageView fx:id="score_digit2">
+        <Image url="@Arabic_Numerals.svg.png"/>
+        <viewport>
+            <Rectangle2D width="192" height="257"/>
+        </viewport>
+    </ImageView>
+
+    <ImageView fx:id="score_digit3">
+        <Image url="@Arabic_Numerals.svg.png"/>
+        <viewport>
+            <Rectangle2D width="192" height="257"/>
+        </viewport>
+    </ImageView>
+
+    <ImageView fx:id="score_digit4">
+        <Image url="@Arabic_Numerals.svg.png"/>
+        <viewport>
+            <Rectangle2D width="192" height="257"/>
+        </viewport>
+    </ImageView>
+
+    <ImageView fx:id="score_digit5">
+        <Image url="@Arabic_Numerals.svg.png"/>
+        <viewport>
+            <Rectangle2D width="192" height="257"/>
+        </viewport>
+    </ImageView>
+
+
+    <Text fx:id="max_score" text="BEST" textAlignment="CENTER" fill="#eee4da"/>
+    <ImageView fx:id="max_score_digit1">
+        <Image url="@Arabic_Numerals.svg.png"/>
+        <viewport>
+            <Rectangle2D width="192" height="257"/>
+        </viewport>
+    </ImageView>
+
+    <ImageView fx:id="max_score_digit2">
+        <Image url="@Arabic_Numerals.svg.png"/>
+        <viewport>
+            <Rectangle2D width="192" height="257"/>
+        </viewport>
+    </ImageView>
+
+    <ImageView fx:id="max_score_digit3">
+        <Image url="@Arabic_Numerals.svg.png"/>
+        <viewport>
+            <Rectangle2D width="192" height="257"/>
+        </viewport>
+    </ImageView>
+
+    <ImageView fx:id="max_score_digit4">
+        <Image url="@Arabic_Numerals.svg.png"/>
+        <viewport>
+            <Rectangle2D width="192" height="257"/>
+        </viewport>
+    </ImageView>
+
+    <ImageView fx:id="max_score_digit5">
+        <Image url="@Arabic_Numerals.svg.png"/>
+        <viewport>
+            <Rectangle2D width="192" height="257"/>
+        </viewport>
+    </ImageView>
+    <ImageView fx:id="score_bg1">
+        <Image url="@score_bg.png"/>
+    </ImageView>
+    <ImageView fx:id="score_bg2">
+        <Image url="@score_bg.png"/>
+    </ImageView>
+</BorderPane>

@@ -1,4 +1,4 @@
 .root {
-    -fx-background-image: url('./bg1.jpg');
+    -fx-background-image: url('./bg2.png');
     -fx-background-size: cover; /* 背景图片大小设置为覆盖整个节点 */
 }
