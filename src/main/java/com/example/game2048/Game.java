@@ -177,7 +177,7 @@ public class Game {
     }
     public static void load() {
         String saveFilePath = "save.dat";
-        board = Board.loadData(saveFilePath);
+        board = Board.loadData();
         if (board == null) {
             System.out.println("Load error!");
         } else {

@@ -246,7 +246,7 @@ public class Board {
             e.printStackTrace();
         }
     }
-    public static Board loadData(String path) {
+    public static Board loadData() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("save.dat"))) {
             savedData loadedBoard = (savedData) ois.readObject();
             return new Board(loadedBoard);
